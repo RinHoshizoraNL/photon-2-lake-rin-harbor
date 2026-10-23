@@ -22,6 +22,25 @@ VEHICLE.Equipment = {
 		}
 	},
 	{
+		Category = "Lighting",
+		Options = {
+			{
+				Option = "Default",
+				Components = {
+					{
+						Name = "@standard",
+						Component = "photon_standard_cvpi10",
+						Inputs = {
+							["Emergency.Warning"] = {
+								["MODE3"] = {},
+							}
+						}
+					},
+				}
+			}
+		}
+	},
+	{
 		Category = "Lightbar",
 		Options = {
             {
@@ -45,6 +64,12 @@ VEHICLE.Equipment = {
 						SubMaterials = {
 							[2] = "sentry/props/koitoflasher/glass_amber"
 						},
+						Inputs = {
+							["Emergency.Warning"] = {
+								["MODE1"] = {},
+								["MODE2"] = {},
+							}
+						}
                     },
 				}
 			},
@@ -105,7 +130,7 @@ VEHICLE.Equipment = {
 					{ BodyGroup = "partition", Value = 1 },
 					{ BodyGroup = "door_l_notch", Value = 1 },
 					{ BodyGroup = "door_r_notch", Value = 1 },
-					{ BodyGroup = "doortrim", Value = 5 },
+					{ BodyGroup = "doortrim", Value = 0 },
 					{ BodyGroup = "pillars", Value = 1 },
                     { BodyGroup = "4bulb_tails", Value = 1 },
 				},
@@ -132,12 +157,18 @@ VEHICLE.Equipment = {
 						RenderGroup = RENDERGROUP_OPAQUE,
 					},
 					{
+						Model = "models/schmal/antenna_vhf_2.mdl",
+						Position = Vector( -35.7, -105, 42.5),
+						Angles = Angle( 0, 0, 2 ),
+						Scale = 1
+					},
+					{
 						Model = "models/xenosprops/na_plate/na_plate_gov.mdl",
 						Position = Vector( 0, -124.55, 36.2 ),
 						Angles = Angle( -11, 270, 00 ),
 						Scale = 1,
 						SubMaterials = {
-							[1] = "rin/expressway/props/plate_state",
+							[1] = "rin/port/props/plate_port",
 						},
 					},
 					{
@@ -146,7 +177,7 @@ VEHICLE.Equipment = {
 						Angles = Angle( 6.5, 90, 0 ),
 						Scale = 0.97,
 						SubMaterials = {
-							[1] = "rin/expressway/props/plate_state",
+							[1] = "rin/port/props/plate_port",
 						},
 					},
 				}

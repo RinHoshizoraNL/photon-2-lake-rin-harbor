@@ -6,14 +6,84 @@ VEHICLE.Vehicle		= "smfordresponder"
 VEHICLE.Category 	= "Photon 2: Lake Rin Harbor"
 VEHICLE.Author		= "Rin Hoshizora"
 
+local sequence = Photon2.SequenceBuilder.New
+
 VEHICLE.Equipment = {
 	{
 		Category = "Livery",
 		Options = {
 			{
-				Option = "Patrol",
+				Option = "Maintenance Service",
 				SubMaterials = {
 					{ Id = 29, Material = "rin/port/f150/port_authority" }
+				},
+			},
+		}
+	},
+	{
+		Category = "Lighting",
+		Options = {
+			{
+				Option = "Default",
+				Components = {
+					{
+						Name = "@standard",
+						Component = "photon_standard_smf15018",
+						Inputs = {
+							["Emergency.Warning"] = {
+								["MODE1"] = {},
+								["MODE2"] = {},
+								["MODE3"] = {},
+							}
+						}
+					},
+				}
+			}
+		}
+	},
+	{
+		Category = "Dash Light",
+		Options = {
+            {
+				Option = "Federal Signal X-stream",
+				Components = {
+					{
+						Component = "photon_fedsig_xstream_duo",
+						Position = Vector( 0, 68.9, 70.5  ),
+						Angles = Angle( 0, 90, 0 ),
+						Scale = 1,
+						States = {
+							[1] = "A",
+							[2] = "A",
+						},
+						BodyGroups = {
+							["shroud"] = 0,
+							["mount"] = 0,
+						},
+						Segments = {
+							LightDash = {
+								Frames = {
+									[1] = "1",
+									[2] = "2",
+									[3] = "1 2",
+								},
+								Sequences = {
+									["STAGE3"] = {3,3,3,0,0,0,3,3,3,0,3,0,3,0,0,3,0,0,3,0,0,3,0,3,0,0,0},
+								}
+							},
+						},
+						Inputs = {
+							["Emergency.Warning"] = {
+								["MODE1"] = {},
+								["MODE2"] = {},
+								["MODE3"] = {LightDash = "STAGE3"},
+							},
+						},
+						Bones = {
+							["suction_mount"] =	{ Vector( 0, 0, 0 ), Angle( 0, 0, 5 ), 1 },
+						},
+						RenderGroup = RENDERGROUP_OPAQUE,
+					},
 				},
 			},
 		}
@@ -33,6 +103,12 @@ VEHICLE.Equipment = {
                         SubMaterials = {
 							[6] = "sentry/shared/glass/amber"
 						},
+						Inputs = {
+							["Emergency.Warning"] = {
+								["MODE1"] = {},
+								["MODE2"] = {},
+							}
+						}
                     },
 					{
                         Component = "patlite_hkf",
@@ -43,6 +119,12 @@ VEHICLE.Equipment = {
                         SubMaterials = {
 							[6] = "sentry/shared/glass/amber"
 						},
+						Inputs = {
+							["Emergency.Warning"] = {
+								["MODE1"] = {},
+								["MODE2"] = {},
+							}
+						}
                     },
 				}
 			},
@@ -90,7 +172,7 @@ VEHICLE.Equipment = {
 						Angles = Angle( 0, 270, 00 ),
 						Scale = 1,
 						SubMaterials = {
-							[1] = "rin/expressway/props/plate_state",
+							[1] = "rin/port/props/plate_port",
 						},
 					},
 					{
@@ -105,7 +187,7 @@ VEHICLE.Equipment = {
 						Angles = Angle( 0, 90, 0 ),
 						Scale = 1,
 						SubMaterials = {
-							[1] = "rin/expressway/props/plate_state",
+							[1] = "rin/port/props/plate_port",
 						},
 					},
 					{

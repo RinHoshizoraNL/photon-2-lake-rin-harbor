@@ -20,6 +20,25 @@ VEHICLE.Equipment = {
 			},
 		}
 	},
+	{
+		Category = "Lighting",
+		Options = {
+			{
+				Option = "Default",
+				Components = {
+					{
+						Name = "@standard",
+						Component = "photon_standard_sgmcvpi96",
+						Inputs = {
+							["Emergency.Warning"] = {
+								["MODE3"] = {},
+							}
+						}
+					},
+				}
+			}
+		}
+	},
     {
 		Category = "Lightbar",
 		Options = {
@@ -44,6 +63,12 @@ VEHICLE.Equipment = {
 						SubMaterials = {
 							[2] = "sentry/props/koitoflasher/glass_amber"
 						},
+						Inputs = {
+							["Emergency.Warning"] = {
+								["MODE1"] = {},
+								["MODE2"] = {},
+							}
+						}
                     },
 				}
 			},
@@ -105,7 +130,7 @@ VEHICLE.Equipment = {
 			{
 				Option = "Equipment",
 				BodyGroups = {
-					{ BodyGroup = "pillars", Value = 1 },
+					{ BodyGroup = "pillars", Value = 0 },
                     { BodyGroup = "cvbadge", Value = 0 },
                     { BodyGroup = "fordbadge", Value = 0 },
 					{ BodyGroup = "trim_body", Value = 1 },
@@ -117,6 +142,12 @@ VEHICLE.Equipment = {
 						Model = "models/schmal/antenna_motorola.mdl",
 						Position = Vector( 0, -32, 68.7),
 						Angles = Angle( 0, 0, 2 ),
+						Scale = 1
+					},
+					{
+						Model = "models/schmal/antenna_vhf_2.mdl",
+						Position = Vector( -36, -105, 42),
+						Angles = Angle( 0, 0, 6 ),
 						Scale = 1
 					},
 					{
@@ -152,7 +183,7 @@ VEHICLE.Equipment = {
 						Angles = Angle( 0, 270, 00 ),
 						Scale = 0.95,
 						SubMaterials = {
-							[1] = "rin/expressway/props/plate_state",
+							[1] = "rin/port/props/plate_port",
 						},
 					},
 					{
@@ -161,7 +192,7 @@ VEHICLE.Equipment = {
 						Angles = Angle( 0, 90, 0 ),
 						Scale = 0.99,
 						SubMaterials = {
-							[1] = "rin/expressway/props/plate_state",
+							[1] = "rin/port/props/plate_port",
 						},
 					},
 				}
